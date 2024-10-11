@@ -5,11 +5,11 @@
 {% block content %}
     <div class="features">
         <h1>{{ taska.title }}</h1>
-        <p>Тип задачи: {{ taska.type }}</p>
-        <p>Описание: {{ taska.description }}</p>
-        <p>Постановщик: {{ taska.author }}</p>
-        <p>Исполнитель: {{ taska.executor }}</p>
-        <p>Статус: {{ taska.status }}</p>
+        <h2><i>Тип задачи:</i> {{ taska.type }}</h2>
+        <p><i>Описание:</i> {{ taska.description }}</p>
+        <p><i>Постановщик:</i> {{ taska.author }}</p>
+        <p><i>Исполнитель:</i> {{ taska.executor }}</p>
+        <p><i>Статус:</i> {{ taska.status }}</p>
     </div>
 
 {% endblock %}
