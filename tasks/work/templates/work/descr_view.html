@@ -1,0 +1,16 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ taska.title }}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{ taska.title }}</h1>
+        <p>Тип задачи: {{ taska.type }}</p>
+        <p>Описание: {{ taska.description }}</p>
+        <p>Постановщик: {{ taska.author }}</p>
+        <p>Исполнитель: {{ taska.executor }}</p>
+        <p>Статус: {{ taska.status }}</p>
+    </div>
+
+{% endblock %}
+

@@ -4,5 +4,5 @@ from . import views
 urlpatterns = [
     path('', views.work_home, name='work_home'),
     path('closed/', views.work_closed, name='work_closed'),
-
+    path('<int:pk>', views.WorktaskDetailView.as_view(), name='task-descr')
 ]
