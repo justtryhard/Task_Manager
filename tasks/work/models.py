@@ -9,12 +9,10 @@ class WorkTask(models.Model):
         ("Модернизация", "Модернизация"),
         ("Демонтаж", "Демонтаж")
     ]
-
     status_choices = [
         ("Открыта", "Открыта"),
         ("Закрыта", "Закрыта")
     ]
-
     title = models.CharField('Адрес', max_length=50)
     type = models.CharField(max_length=15, choices=type_choices, default="Аварийный выезд")
     description = models.TextField('Описание')
@@ -23,6 +21,7 @@ class WorkTask(models.Model):
     executor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True,
                                  verbose_name="Исполнитель", related_name="executor")
     status = models.CharField(max_length=7, choices=status_choices, default="Открыта")
+    create_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f'{self.title}'
