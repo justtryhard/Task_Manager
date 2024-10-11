@@ -29,9 +29,9 @@
         <ul>
         {% for comment in taska.comments_worktask.all %}
             <li>
-            Автор: {{ comment.author }} <br>
-            Комментарий: {{ comment.text }} <br>
-            Добавлено: {{ comment.create_date }} <br>
+            <i>Автор:</i> {{ comment.author }} <br>
+            <i>Комментарий:</i> {{ comment.text }} <br>
+            <i>Добавлено:</i> {{ comment.create_date }} <br>
             <hr>
             </li>
         {% endfor %}
