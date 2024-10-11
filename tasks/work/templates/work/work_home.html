@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Незакрытые задачи{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Незакрытые задачи</h1>
+        {% if worktasks %}
+            {% for el in worktasks %}
+                <div class="alert alert-warning">
+                    <h3>{{ el.title }}</h3>
+                    <p>{{ el.type }}</p>
+                    <p>{{ el.description }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h3>Задач нет</h3>
+        {% endif %}
+
+        {# Комментарий #}
+    </div>
+
+{% endblock %}
+
