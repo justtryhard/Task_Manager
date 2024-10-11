@@ -11,7 +11,43 @@
         <p><i>Исполнитель:</i> {{ taska.executor }}</p>
         <p><i>Дата создания:</i> {{ taska.create_date }}</p>
         <p><i>Статус:</i> {{ taska.status }}</p>
+
+
+        <p><b>Комментарии ({{ taska.comments_worktask.all.count }}):</b></p>
+
+
+        <hr>
+
+        {% if messages %}
+        <div class="alert alert-success">
+            {% for m in messages %}
+                {{ m }}
+            {% endfor %}
+        </div>
+            {% endif %}
+
+        <ul>
+        {% for comment in taska.comments_worktask.all %}
+            <li>
+            Автор: {{ comment.author }} <br>
+            Комментарий: {{ comment.text }} <br>
+            Добавлено: {{ comment.create_date }} <br>
+            <hr>
+            </li>
+        {% endfor %}
+        </ul>
+
+        <p>Добавить комментарий</p>
+        <center><div class="col-4">
+            <form action="" id="add_form" method="post">
+                {% csrf_token %}
+                    {{ form.as_p }}
+            </form>
+            <button form="add_form" type="submit" class="btn btn-warning">Добавить</button>
+        </div>
+        </center>
     </div>
+
 
 {% endblock %}
 

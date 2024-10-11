@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.contrib.auth.models import User
 
 
 class WorkTask(models.Model):
@@ -29,3 +30,12 @@ class WorkTask(models.Model):
     class Meta:
         verbose_name = "Tasks for the installers"
         verbose_name_plural = "Tasks for the installers"
+
+
+class Comments(models.Model):
+    worktask = models.ForeignKey(WorkTask, on_delete=models.CASCADE, verbose_name='Задача', blank=True, null=True,
+                                 related_name='comments_worktask')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Автор', blank=True, null=True)
+    create_date = models.DateTimeField(auto_now=True)
+    text = models.TextField(verbose_name='Текст комментария')
+    status = models.BooleanField(verbose_name='Видимость комментария', default=False)
