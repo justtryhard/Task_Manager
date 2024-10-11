@@ -1,0 +1,11 @@
+{% load static %}
+<title>Страница выхода</title>
+<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+<link rel="stylesheet" href="{% static 'main/css/authform.css' %}">
+<div class="modal">
+  {% block content %}
+    <center></center><p>Вы вышли из системы!</p>
+
+    <a href="{% url 'login'%}">Нажмите, чтобы авторизоваться снова</a></center>
+  {% endblock %}
+</div>

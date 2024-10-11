@@ -1,0 +1,22 @@
+{% load static %}
+<title>Страница авторизации</title>
+<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+<link rel="stylesheet" href="{% static 'main/css/authform.css' %}">
+<center><h1>Для работы с приложением необходима авторизация!</h1></center>
+<div class="modal">
+    <form method="post">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+        {% for field in form %}
+            <p class="form-label">{{ field.label }}</p>
+            <p>{{ field }}</p>
+        {% endfor %}
+        <button type="submit" class="btn btn-outline-success">Войти</button>
+    </form>
+</div>
+
+

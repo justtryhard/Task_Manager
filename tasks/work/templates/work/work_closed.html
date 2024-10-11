@@ -1,13 +1,13 @@
 {% extends 'main/layout.html' %}
 
-{% block title %}Актуальные задачи{% endblock %}
+{% block title %}Завершённые задачи{% endblock %}
 
 {% block content %}
     <div class="features">
-        <h1>Актуальные задачи</h1>
-        {% if worktasks %}
-            {% for el in worktasks %}
-                {% if el.status == "Открыта" %}
+        <h1>Завершённые задачи</h1>
+        {% if worktasks_cl %}
+            {% for el in worktasks_cl %}
+                {% if el.status == "Закрыта" %}
                     {% if el.executor == request.user %}
                         <div class="alert alert-warning">
                             <h3>{{ el.title }}</h3>
