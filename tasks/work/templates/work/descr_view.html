@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="features">
-        <h1>{{ taska.title }}</h1>
+        <h1>{{ taska }}</h1>
         <h2><i>Тип задачи:</i> {{ taska.type }}</h2>
         <p><i>Описание:</i> {{ taska.description }}</p>
         <p><i>Постановщик:</i> {{ taska.author }}</p>
@@ -24,7 +24,7 @@
                 {{ m }}
             {% endfor %}
         </div>
-            {% endif %}
+        {% endif %}
 
         <ul>
         {% for comment in taska.comments_worktask.all %}
@@ -40,6 +40,7 @@
         <p>Добавить комментарий</p>
         <center><div class="col-4">
             <form action="" id="add_form" method="post">
+<!--       нижеуказанный токен нужен для проверки, что запрос исходит от подлинного клиента. Без него ошибка 403-->
                 {% csrf_token %}
                     {{ form.as_p }}
             </form>

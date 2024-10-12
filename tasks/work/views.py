@@ -20,7 +20,7 @@ def work_closed(request):
     return render(request, 'work/work_closed.html', {'worktasks_cl': worktasks_cl})
 
 
-class CommentMixin:
+class CommentMixin:         #класс, позволяющий получить доступ к сущности WorkTask для установления связи с Comments
     @property
     def success_msg(self):
         return False
@@ -29,7 +29,7 @@ class CommentMixin:
         messages.success(self.request, self.success_msg)
         return super().form_valid(form)
 
-    def get_succ_url(self):
+    def get_success_url(self):  #включение данных в качестве GET параметров в URL-адрес успеха
         return '%s?id=%s' % (self.success_url, self.object.id)
 
 

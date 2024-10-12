@@ -3,7 +3,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 
 
-class WorkTask(models.Model):
+class WorkTask(models.Model):           #класс, определяющий атрибуты и архитектуру сущности "Задача"
     type_choices = [
         ("Подключение", "Подключение"),
         ("Аварийный выезд", "Аварийный выезд"),
@@ -24,7 +24,7 @@ class WorkTask(models.Model):
     status = models.CharField(max_length=7, choices=status_choices, default="Открыта")
     create_date = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
+    def __str__(self):              #переопределение метода для показа параметра title при вызове
         return f'{self.title}'
 
     class Meta:
@@ -32,10 +32,10 @@ class WorkTask(models.Model):
         verbose_name_plural = "Tasks for the installers"
 
 
-class Comments(models.Model):
+class Comments(models.Model):       #класс, определяющий атрибуты комментариев
     worktask = models.ForeignKey(WorkTask, on_delete=models.CASCADE, verbose_name='Задача', blank=True, null=True,
                                  related_name='comments_worktask')
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Автор', blank=True, null=True)
     create_date = models.DateTimeField(auto_now=True)
     text = models.TextField(verbose_name='Текст комментария')
-    status = models.BooleanField(verbose_name='Видимость комментария', default=False)
+    status = models.BooleanField(verbose_name='Видимость комментария', default=False) #не используется
