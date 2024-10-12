@@ -28,9 +28,9 @@ class WorkTask(models.Model):           #класс, определяющий а
     def __str__(self):              #переопределение метода для показа параметра title при вызове
         return f'{self.title}'
 
-    def set_closed(self):
-        self.status = "Закрыта"
-        return redirect('work_home')
+    # def set_closed(self):
+    #     self.status = "Закрыта"
+    #     return redirect('work_home')
 
     class Meta:
         verbose_name = "Задачи"
@@ -42,7 +42,7 @@ class Comments(models.Model):       #класс, определяющий атр
                                  related_name='comments_worktask')
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Автор', blank=True, null=True)
     create_date = models.DateTimeField(auto_now=True)
-    text = models.TextField(verbose_name='Текст комментария')
+    text = models.TextField(verbose_name='')
     status = models.BooleanField(verbose_name='Видимость комментария', default=False) #не используется
 
     class Meta:

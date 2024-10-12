@@ -17,7 +17,6 @@
                             <h3>{{ el }}</h3>
                             <p>{{ el.type }}</p>
                             <a href="{% url 'task-descr' el.id %}" class="btn btn-warning"> Открыть описание</a>
-                            <a target="_blank" href="{{ el.set_closed }}">Check It Out</a>
                         </div>
                     {% elif el.executor == request.user %}
                         <div class="alert alert-warning">

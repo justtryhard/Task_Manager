@@ -24,6 +24,7 @@ def login(request):  #переход на страницу авторизаци�
 
 
 def create_adv(request):    # изъятие данных из формы и передача в БД
+    error = ''
     if request.method == 'POST':
         form = AdvertForm(request.POST)
         if form.is_valid():
@@ -37,5 +38,6 @@ def create_adv(request):    # изъятие данных из формы и п�
     form = AdvertForm()
     data = {
         'form': form,
+        'error': error
     }
     return render(request, 'main/create_adv.html', data)
