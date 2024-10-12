@@ -7,9 +7,12 @@ aside {
     background: #212844;
     width: 20%;
     padding: 2.5%;
-    height: auto;
+    height: auto; /*  100vh */
+    flex-grow : 1;
+    flex-basis: 0px;
     color: #fff;
     border-right: 5px solid #ba2d2d;
+    border-bottom: 5px solid #ba2d2d;
 }
 
 aside img {
@@ -17,6 +20,7 @@ aside img {
     height: 60px;
     float:left;
 }
+
 aside .logo {
     font-size: 15px;
     margin-left: 2px;
@@ -61,10 +65,4 @@ main .features p {max-width: 800px; margin: 20px auto}
     clear: both;
     text-align: center;
     margin: 10px 19%;
-}
-
-form {
-    margin-left: 20%;
-    width: 60%;
-    margin-top:50px;
 }

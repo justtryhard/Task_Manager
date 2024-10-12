@@ -1,11 +1,15 @@
 {% extends 'main/layout.html' %}
+{% load get_group %}
 
 {% block title %}Главная страница{% endblock %}
 
 {% block content %}
     <div class="features">
         <h1>Важная информация</h1><br>
-        <a href="{% url 'create_adv' %}"><li><button class="btn btn-warning">Добавить запись</button></li></a><br><br>
+        {% if request.user|has_group:"Support" %}
+            <a href="{% url 'create_adv' %}"><li><button class="btn btn-warning">Добавить запись</button></li></a><br>
+        {% endif %}
+
 
         {% if adverts %}
             {% for el in adverts %}
