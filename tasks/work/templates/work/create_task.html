@@ -1,0 +1,20 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Новая задача{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Новая задача</h1>
+        <form method="post">
+            {% csrf_token %}
+                {{ form.as_p }}<br>
+<!--                {{ form.type }}<br>-->
+<!--                {{ form.description }}<br>-->
+<!--            Назначить: {{ form.executor }}<br>-->
+            <span>{{ error }}</span>
+            <button class="btn btn-success" type="submit">Создать</button>
+        </form>
+    </div>
+
+{% endblock %}
+

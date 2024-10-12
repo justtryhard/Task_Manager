@@ -1,11 +1,11 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from django.urls import reverse_lazy
 from django.contrib import messages
 from .models import WorkTask
 from django.views.generic import DetailView
 from django.views.generic.edit import FormMixin
-from .forms import CommentForm
+from .forms import CommentForm, WorkTaskForm
 
 
 @login_required
@@ -20,7 +20,7 @@ def work_closed(request):
     return render(request, 'work/work_closed.html', {'worktasks_cl': worktasks_cl})
 
 
-class CommentMixin:         #класс, позволяющий получить доступ к сущности WorkTask для установления связи с Comments
+class CommentMixin:  #класс, позволяющий получить доступ к сущности WorkTask для установления связи с Comments
     @property
     def success_msg(self):
         return False
@@ -56,3 +56,21 @@ class WorktaskDetailView(CommentMixin, FormMixin, DetailView):
         self.object.author = self.request.user
         self.object.save()
         return super().form_valid(form)
+
+
+def create_task(request):  # создание новой задачи
+    error = ''
+    if request.method == 'POST':
+        form = WorkTaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('work_home')
+        else:
+            error = 'Неверная форма'
+
+    form = WorkTaskForm()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'work/create_task.html', data)

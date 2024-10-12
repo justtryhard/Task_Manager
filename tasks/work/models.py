@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
 
 
 class WorkTask(models.Model):           #класс, определяющий атрибуты и архитектуру сущности "Задача"
@@ -26,6 +27,10 @@ class WorkTask(models.Model):           #класс, определяющий а
 
     def __str__(self):              #переопределение метода для показа параметра title при вызове
         return f'{self.title}'
+
+    def set_closed(self):
+        self.status = "Закрыта"
+        return redirect('work_home')
 
     class Meta:
         verbose_name = "Задачи"
