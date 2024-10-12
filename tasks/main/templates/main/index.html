@@ -1,22 +1,25 @@
 {% extends 'main/layout.html' %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}Главная страница{% endblock %}
 
 {% block content %}
     <div class="features">
-        <h1>{{ title }}</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <button class="btn btn-warning" src="main/about.html">На страницу про нас</button>
+        <h1>Важная информация</h1><br>
+        <a href="{% url 'create_adv' %}"><li><button class="btn btn-warning">Добавить запись</button></li></a><br><br>
 
-        {% for v in values %}
-            {% if v == 'Hello' %}
-                {% filter upper %}
-                    <p>{{ v }}</p>
-                {% endfilter %}
+        {% if adverts %}
+            {% for el in adverts %}
+                 <div class="alert alert-warning">
+                      <h3>{{ el.title }}</h3>
+                      <p>{{ el.content }}</p>
+                      <p><i>Автор:</i> {{ el.author }}</p>
+                      <p><i>Опубликовано:</i> {{ el.create_date }}</p>
+                 </div>
+            {% endfor %}
+        {% else %}
+            <h3>Информации нет</h3>
         {% endif %}
-        {% endfor %}
 
-        {{ obj.age }}
     </div>
 
 {% endblock %}

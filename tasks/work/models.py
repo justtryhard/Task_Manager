@@ -28,8 +28,8 @@ class WorkTask(models.Model):           #класс, определяющий а
         return f'{self.title}'
 
     class Meta:
-        verbose_name = "Tasks for the installers"
-        verbose_name_plural = "Tasks for the installers"
+        verbose_name = "Задачи"
+        verbose_name_plural = "Задачи"
 
 
 class Comments(models.Model):       #класс, определяющий атрибуты комментариев
@@ -39,3 +39,7 @@ class Comments(models.Model):       #класс, определяющий атр
     create_date = models.DateTimeField(auto_now=True)
     text = models.TextField(verbose_name='Текст комментария')
     status = models.BooleanField(verbose_name='Видимость комментария', default=False) #не используется
+
+    class Meta:
+        verbose_name = 'Комментарии'
+        verbose_name_plural = 'Комментарии'
