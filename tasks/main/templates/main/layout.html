@@ -13,17 +13,14 @@
     <script src="https://kit.fontawesome.com/ba5d1e37c6.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <aside>
-        <img src="{% static '/main/img/logo_default.jpg' %}" alt="Логотип">
-        <span class="logo">Best Provider LLC</span>
-        <h3>Навигация</h3>
+    <div class="topnav">
         <ul>
-            <a href="{% url 'home' %}"><li><i class="fa-solid fa-house-chimney-user"></i> Главная</li></a>
-            <a href="{% url 'work_home' %}"><li><i class="fa-solid fa-ethernet"></i> Актуальные задачи</li></a>
-            <a href="{% url 'work_closed' %}"><li><i class="fa-solid fa-network-wired"></i> Завершённые задачи</li></a>
-            <a href="{% url 'lgt' %}"><li><i class="fa-solid fa-right-from-bracket"></i> Выйти</li></a>
+            <a href="{% url 'home' %}"><i class="fa-solid fa-house-chimney-user"></i> Главная</a>
+            <a href="{% url 'work_home' %}"><i class="fa-solid fa-ethernet"></i> Актуальные задачи</a>
+            <a href="{% url 'work_closed' %}"><i class="fa-solid fa-network-wired"></i> Завершённые задачи</a>
+            <a href="{% url 'lgt' %}"><i class="fa-solid fa-right-from-bracket"></i> Выйти</a>
         </ul>
-    </aside>
+    </div>
     <main>
         {% block content %}
         {% endblock %}

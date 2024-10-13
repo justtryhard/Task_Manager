@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="features">
-        <h1>Новая задача</h1>
+        <h1>Новая задача</h1><br>
         <form method="post">
             {% csrf_token %}
                 {{ form.as_p }}<br>

@@ -1,75 +1,67 @@
 body {
-    background: #fff;
+    background: #f0f0f0;
+}
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #212844;
+    overflow: hidden;
 }
 
-aside {
+/* Style the links inside the navigation bar */
+.topnav a {
     float: left;
-    background: #212844;
-    width: 20%;
-    padding: 2.5%;
-    height: auto; /*  100vh */
-    flex-grow : 1;
-    flex-basis: 0px;
-    color: #fff;
-    border-right: 5px solid #ba2d2d;
-    border-bottom: 5px solid #ba2d2d;
-}
-
-aside img {
-    width: 100px;
-    height: 60px;
-    float:left;
-}
-
-aside .logo {
-    font-size: 15px;
-    margin-left: 2px;
-    font-weight: bold;
-    position: relative;
-    top: 10px;
-}
-
-aside h3{
-    margin-top: 50px;
-    font-size: 30px;
-}
-
-aside ul {list-style: none}
-aside ul li {
-    color: #fff;
-    display: block;
-    margin-top: 20px;
-    transition: transform .6s ease;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 18px 1%;
     text-decoration: none;
+    font-size: 19px;
+    transition: transform .5s ease;
 }
 
-aside ul li:hover, aside il a:hover {
-    color: #eb5959;
-    text-decoration: none;
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
     transform: scale(1.1);
 }
 
-aside ul a {
-    text-decoration: none;
+
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
 }
 
 main .features {
     float: left;
     color: #062d62;
-    margin-top: 100px;
-    text-align: center;
+    margin-top: 50px;
+    margin-left: 50px;
+    text-align: left;
     width: 75%;
 }
 
+form  { display: table;}
+label { display: table-cell;}
+input { display: table-cell;}
+
 aside div.language ul a {text-decoration:none;}
 
-main .features h1 {font-size: 50px;}
-main .features p {max-width: 800px; margin: 20px auto}
+main .features h1 {font-size: 50px; margin-left: 8%;}
+main .features p {max-width: 800px;}
 
 .alert-warning {
     float: left;
     width: 800px;
     clear: both;
     text-align: center;
-    margin: 10px 19%;
+}
+
+
+.wrapper {
+    text-align: left;
+}
+
+.button {
+    position: absolute;
+    margin-left: 50%;
 }

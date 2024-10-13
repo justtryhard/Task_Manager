@@ -26,19 +26,20 @@
         </div>
         {% endif %}
 
-        <ul>
+
         {% for comment in taska.comments_worktask.all %}
-            <li>
-            <i>Автор:</i> {{ comment.author }} <br>
+            <div class="alert alert-warning">
             <i>Комментарий:</i> {{ comment.text }} <br>
+            <i>Автор:</i> {{ comment.author }} <br>
             <i>Добавлено:</i> {{ comment.create_date }} <br>
-            <hr>
-            </li>
+
+
+            </div>
         {% endfor %}
-        </ul>
+
 
         <p>Добавить комментарий</p>
-        <center><div class="col-4">
+        <div class="col-4">
             <form action="" id="add_form" method="post">
 <!--       нижеуказанный токен нужен для проверки, что запрос исходит от подлинного клиента. Без него ошибка 403-->
                 {% csrf_token %}
@@ -46,7 +47,7 @@
             </form>
             <button form="add_form" type="submit" class="btn btn-warning">Добавить</button>
         </div>
-        </center>
+
     </div>
 
 

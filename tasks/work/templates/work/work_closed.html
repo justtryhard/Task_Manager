@@ -5,7 +5,7 @@
 
 {% block content %}
     <div class="features">
-        <h1>Завершённые задачи</h1>
+        <h1>Завершённые задачи</h1><br>
         {% if worktasks_cl %}
             {% for el in worktasks_cl %}
                 {% if el.status == "Закрыта" %}

@@ -5,9 +5,9 @@
 
 {% block content %}
     <div class="features">
-        <h1>Актуальные задачи</h1>
+        <h1>Актуальные задачи</h1><br>
         {% if request.user|has_group:"Support" %}
-            <a href="{% url 'create_task' %}"><li><button class="btn btn-warning">Добавить задачу</button></li></a><br>
+            <a href="{% url 'create_task' %}"><button class="btn btn-warning">Добавить задачу</button></a><br><br>
         {% endif %}
 
 
