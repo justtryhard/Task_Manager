@@ -10,7 +10,7 @@ from .forms import CommentForm, WorkTaskForm
 
 @login_required
 def work_home(request):
-    worktasks = WorkTask.objects.order_by('type')
+    worktasks = WorkTask.objects.order_by('executor', 'type')
     return render(request, 'work/work_home.html', {'worktasks': worktasks})
 
 
@@ -60,17 +60,37 @@ class WorktaskDetailView(CommentMixin, FormMixin, DetailView):
 
 def create_task(request):  # создание новой задачи
     error = ''
+    create_task_success = False
     if request.method == 'POST':
         form = WorkTaskForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('work_home')
+            create_task_success = True
         else:
             error = 'Неверная форма'
 
     form = WorkTaskForm()
     data = {
         'form': form,
-        'error': error
+        'error': error,
+        'create_task_success': create_task_success
     }
     return render(request, 'work/create_task.html', data)
+
+
+def edit_task(request, pk): # редактирование задачи
+    get_worktask = WorkTask.objects.get(pk=pk)
+    edit_task_success = False
+    if request.method == 'POST':
+        form = WorkTaskForm(request.POST, instance= get_worktask)
+        if form.is_valid():
+            form.save()
+            edit_task_success = True
+    template = 'work/edit_task.html'
+    context = {
+        'form': WorkTaskForm(instance = get_worktask),
+        'get_task': get_worktask,
+        'edit_task_success': edit_task_success
+
+    }
+    return render(request, template, context)

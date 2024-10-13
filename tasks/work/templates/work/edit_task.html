@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Редактирование задачи{% endblock %}
+
+{% block content %}
+        <div class="features">
+            <h1>Редактирование задачи</h1>
+            <form method="post">
+            {% csrf_token %}
+                {{ form.as_p }}<br>
+            <button class="btn btn-success" type="submit">Изменить</button>
+            </form>
+            {% if edit_task_success %}
+                <p style="color:red">Задача отредактирована!</p>
+            {% endif %}
+            <br>
+            <a href="{% url 'work_home' %}" class="btn btn-warning">Вернуться списку задач</a>
+        </div>
+
+{% endblock %}
+

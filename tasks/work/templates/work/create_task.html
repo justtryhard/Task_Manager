@@ -11,6 +11,11 @@
             <span>{{ error }}</span>
             <button class="btn btn-success" type="submit">Создать</button>
         </form>
+        {% if create_task_success %}
+            <p style="color:red">Задача создана!</p>
+        {% endif %}
+        <br>
+        <a href="{% url 'work_home' %}" class="btn btn-warning">Вернуться списку задач</a>
     </div>
 
 {% endblock %}
