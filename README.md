@@ -5,10 +5,12 @@
 # Запуск:
 Для локального запуска необходимо поместить в директорию /task_manager_L1/tasks/tasks файл .env, либо добавить SECRET_KEY в settings.py в той же директориии.  
 Затем из папки /task_manager_L1/tasks/ произвести запуск:  
-python manage.py runserver --insecure (При выключенном DEBUG в режиме insecure будут корректно работать статические файлы)
+python manage.py runserver --insecure  
+(При выключенном DEBUG в режиме insecure будут корректно работать статические файлы)
 
 После данных действий запустится локалхост, на котором можно протестировать приложение.  
-Если что-то пошло не так, можно добавить requirements вручую командой:  pip install -r requirements.txt    
+Если что-то пошло не так, можно добавить requirements вручую командой:  
+pip install -r requirements.txt    
 
 ## В приложении есть 2 группы пользователей:
 - Support
