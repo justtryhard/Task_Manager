@@ -16,13 +16,13 @@ class WorkTask(models.Model):           #класс, определяющий а
         ("Закрыта", "Закрыта")
     ]
     title = models.CharField('Адрес', max_length=50)
-    type = models.CharField(max_length=15, choices=type_choices, default="Аварийный выезд")
+    type = models.CharField(max_length=15, choices=type_choices, default="Аварийный выезд", verbose_name="Тип")
     description = models.TextField('Описание')
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True,
                                verbose_name="Постановщик", related_name="author")
     executor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True,
                                  verbose_name="Исполнитель", related_name="executor")
-    status = models.CharField(max_length=7, choices=status_choices, default="Открыта")
+    status = models.CharField(max_length=7, choices=status_choices, default="Открыта", verbose_name="Статус")
     create_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):              #переопределение метода для показа параметра title при вызове
