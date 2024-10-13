@@ -6,8 +6,6 @@
 1) Для локального запуска необходимо поместить файл .env в указанную ниже директорию:  
 - /task_manager_L1/tasks/tasks
 
-либо добавить SECRET_KEY в settings.py в той же директориии.  
-
 2) Затем из папки /task_manager_L1/tasks/ произвести запуск:  
 - python manage.py runserver --insecure  
 (При выключенном DEBUG в режиме insecure будут корректно работать статические файлы)
