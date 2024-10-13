@@ -3,14 +3,14 @@
 {% block title %}{{ taska.title }}{% endblock %}
 
 {% block content %}
-    <div class="features">
+    <div class="col-4">
         <h1>{{ taska }}</h1>
-        <h2><i>Тип задачи:</i> {{ taska.type }}</h2>
-        <p><i>Описание:</i> {{ taska.description }}</p>
-        <p><i>Постановщик:</i> {{ taska.author }}</p>
-        <p><i>Исполнитель:</i> {{ taska.executor }}</p>
-        <p><i>Дата создания:</i> {{ taska.create_date }}</p>
-        <p><i>Статус:</i> {{ taska.status }}</p>
+        <h2><i><b>Тип задачи:</b></i> {{ taska.type }}</h2>
+        <p><i><b>Описание:</b></i> {{ taska.description }}</p>
+        <p><i><b>Постановщик:</b></i> {{ taska.author }}</p>
+        <p><i><b>Исполнитель:</b></i> {{ taska.executor }}</p>
+        <p><i><b>Дата создания:</b></i> {{ taska.create_date }}</p>
+        <p><i><b>Статус:</b></i> {{ taska.status }}</p>
 
 
         <p><b>Комментарии ({{ taska.comments_worktask.all.count }}):</b></p>

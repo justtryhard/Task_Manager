@@ -17,7 +17,7 @@
                     {% if request.user|has_group:"Support" %}
                         <div class="alert alert-warning">
                             <h3>{{ el }}</h3>
-                            <p>{{ el.type }}</p>
+                            <p>Тип задачи: {{ el.type }}</p>
                             <p>Исполнитель: {{ el.executor }}</p>
                             <a href="{% url 'task-descr' el.id %}" class="btn btn-warning"> Открыть описание</a>
                             <a href="{% url 'edit_task' el.id %}" class="btn btn-warning"> Редактировать/закрыть</a>
