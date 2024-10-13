@@ -58,6 +58,7 @@ class WorktaskDetailView(CommentMixin, FormMixin, DetailView):
         return super().form_valid(form)
 
 
+@login_required
 def create_task(request):  # создание новой задачи
     error = ''
     create_task_success = False
@@ -78,12 +79,13 @@ def create_task(request):  # создание новой задачи
     return render(request, 'work/create_task.html', data)
 
 
-def edit_task(request, pk): # редактирование задачи
+@login_required
+def edit_task(request, pk):  # редактирование задачи
     error = ''
     get_worktask = WorkTask.objects.get(pk=pk)
     edit_task_success = False
     if request.method == 'POST':
-        form = WorkTaskForm(request.POST, instance= get_worktask)
+        form = WorkTaskForm(request.POST, instance=get_worktask)
         if form.is_valid():
             form.save()
             edit_task_success = True
@@ -91,7 +93,7 @@ def edit_task(request, pk): # редактирование задачи
             error = 'Неверная форма'
     template = 'work/edit_task.html'
     context = {
-        'form': WorkTaskForm(instance = get_worktask),
+        'form': WorkTaskForm(instance=get_worktask),
         'get_task': get_worktask,
         'edit_task_success': edit_task_success,
         'error': error

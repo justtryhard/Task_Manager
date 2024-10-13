@@ -23,6 +23,7 @@ def login(request):  #переход на страницу авторизаци�
     return render(request, 'registration/login.html')
 
 
+@login_required
 def create_adv(request):    # изъятие данных из формы и передача в БД
     error = ''
     if request.method == 'POST':
