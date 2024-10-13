@@ -3,9 +3,16 @@
 <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
 <link rel="stylesheet" href="{% static 'main/css/authform.css' %}">
 <div class="modal">
-  {% block content %}
-    <center></center><p>Вы вышли из системы!</p>
+<center>
+<head>
 
-    <a href="{% url 'login'%}">Нажмите, чтобы авторизоваться снова</a></center>
-  {% endblock %}
+    <img src="{% static '/main/img/logo_default.jpg' %}" alt="Логотип">
+</head>
+<body>
+    <br>
+    <h2><span style="color: white;">Вы вышли из системы!</span></h2>
+    <a href="{% url 'login'%}"><h3><span style="color: white;"><u>Нажмите, чтобы авторизоваться снова</u></h3>
+      </span></a>
+</body>
+</center>
 </div>

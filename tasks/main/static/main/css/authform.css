@@ -1,11 +1,16 @@
 body {
-    background: #fff;
+    background: #212844;
 }
 
 .modal {
     position: absolute;
     left: 50%;
-    top: 20%;
+    top: 400px;
     transform: translate(-50%, -50%);
+    color: white;
 }
 
+img {
+    width: 300px;
+    height: 200px;
+}

@@ -40,12 +40,17 @@ aside ul li {
     display: block;
     margin-top: 20px;
     transition: transform .6s ease;
+    text-decoration: none;
 }
 
 aside ul li:hover, aside il a:hover {
     color: #eb5959;
     text-decoration: none;
     transform: scale(1.1);
+}
+
+aside ul a {
+    text-decoration: none;
 }
 
 main .features {
@@ -55,6 +60,8 @@ main .features {
     text-align: center;
     width: 75%;
 }
+
+aside div.language ul a {text-decoration:none;}
 
 main .features h1 {font-size: 50px;}
 main .features p {max-width: 800px; margin: 20px auto}
