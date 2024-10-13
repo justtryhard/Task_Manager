@@ -28,7 +28,7 @@ class WorkTask(models.Model):           #класс, определяющий а
     def __str__(self):              #переопределение метода для показа параметра title при вызове
         return f'{self.title}'
 
-    # def set_closed(self):
+    # def set_closed(self):         # не нашёл применения. Сделал через POST и views
     #     self.status = "Закрыта"
     #     return redirect('work_home')
 
