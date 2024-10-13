@@ -5,6 +5,7 @@ body {
 .topnav {
     background-color: #212844;
     overflow: hidden;
+    min-width: 800px;
 }
 
 /* Style the links inside the navigation bar */
@@ -12,7 +13,7 @@ body {
     float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 18px 1%;
+    padding: 18px 2%;
     text-decoration: none;
     font-size: 19px;
     transition: transform .5s ease;
@@ -46,7 +47,7 @@ input { display: table-cell;}
 
 aside div.language ul a {text-decoration:none;}
 
-main .features h1 {font-size: 50px; margin-left: 8%;}
+main .features h1 {font-size: 50px; margin-left: 8%; max-width: 800px;}
 main .features p {max-width: 800px;}
 
 .alert-warning {
