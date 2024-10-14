@@ -7,7 +7,7 @@
     <div class="features">
         <h1>Важная информация</h1><br>
         {% if request.user|has_group:"Support" %}
-            <a href="{% url 'create_adv' %}"><button class="btn btn-warning">
+            <a href="{% url 'create_adv' %}"><button class="btn btn-info">
                 Добавить запись</button></a><br><br>
         {% endif %}
 
