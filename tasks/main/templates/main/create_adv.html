@@ -3,8 +3,8 @@
 {% block title %}Новое объявление{% endblock %}
 
 {% block content %}
-    <div class="features">
-        <h1>Новое объявление</h1>
+    <div class="col-4">
+        <br><h1>Новое объявление</h1><br>
         <form method="post">
             {% csrf_token %}
             {{ form.title }}<br>

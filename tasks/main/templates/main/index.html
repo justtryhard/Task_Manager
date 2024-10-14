@@ -7,14 +7,14 @@
     <div class="features">
         <h1>Важная информация</h1><br>
         {% if request.user|has_group:"Support" %}
-            <div class="wrapper"><a href="{% url 'create_adv' %}"><button class="btn btn-warning">
-                Добавить запись</button></a><br><br></div>
+            <a href="{% url 'create_adv' %}"><button class="btn btn-warning">
+                Добавить запись</button></a><br><br>
         {% endif %}
 
 
         {% if adverts %}
             {% for el in adverts %}
-                 <div class="alert alert-warning">
+                 <div class="alert alert-info">
                       <h3>{{ el.title }}</h3>
                       <p>{{ el.content }}</p>
                       <p><i>Автор:</i> {{ el.author }}</p>

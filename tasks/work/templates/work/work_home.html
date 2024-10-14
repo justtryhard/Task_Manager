@@ -20,7 +20,7 @@
                             <p>Тип задачи: {{ el.type }}</p>
                             <p>Исполнитель: {{ el.executor }}</p>
                             <a href="{% url 'task-descr' el.id %}" class="btn btn-warning"> Открыть описание</a>
-                            <a href="{% url 'edit_task' el.id %}" class="btn btn-warning"> Редактировать/закрыть</a>
+                            <a href="{% url 'edit_task' el.id %}" class="btn btn-warning"> Редактировать</a>
                         </div>
                     {% elif el.executor == request.user %}
                         <div class="alert alert-warning">
