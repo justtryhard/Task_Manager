@@ -68,7 +68,7 @@ main .features p {width: width: 100%;}
     clear: both;
     text-align: center;
     display: inline-block;
-
+    word-wrap: break-word;
 
 }
 
