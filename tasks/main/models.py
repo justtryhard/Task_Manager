@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 
 class Advert(models.Model):  #класс, определяющий атрибуты и архитектуру сущности "Объявление"
 
-    title = models.CharField('Заголовок', max_length=70)
-    content = models.TextField('Содержание')
+    title = models.CharField(verbose_name='Заголовок', max_length=70)
+    content = models.TextField(verbose_name='Содержание')
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Автор', null=True)
     create_date = models.DateTimeField(auto_now=True)
 
