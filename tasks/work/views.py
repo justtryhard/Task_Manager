@@ -2,19 +2,21 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponse, redirect
 from django.urls import reverse_lazy
 from django.contrib import messages
+from django.utils.decorators import method_decorator
+
 from .models import WorkTask
 from django.views.generic import DetailView
 from django.views.generic.edit import FormMixin
 from .forms import CommentForm, WorkTaskForm
 
 
-@login_required
+@login_required(login_url='/accounts/login?next=/work/')
 def work_home(request):
     worktasks = WorkTask.objects.order_by('executor', 'type')
     return render(request, 'work/work_home.html', {'worktasks': worktasks})
 
 
-@login_required
+@login_required(login_url='/accounts/login?next=/work/closed/')
 def work_closed(request):
     worktasks_cl = WorkTask.objects.order_by('type')
     return render(request, 'work/work_closed.html', {'worktasks_cl': worktasks_cl})
@@ -33,6 +35,7 @@ class CommentMixin:  #класс, позволяющий получить дос
         return '%s?id=%s' % (self.success_url, self.object.id)
 
 
+@method_decorator(login_required(login_url='/accounts/login?next=/work/'), 'dispatch')
 class WorktaskDetailView(CommentMixin, FormMixin, DetailView):
     model = WorkTask
     template_name = 'work/descr_view.html'
