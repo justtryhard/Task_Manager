@@ -1,7 +1,7 @@
 body {
     background: #f0f0f0;
 }
-/* Add a black background color to the top navigation */
+
 .topnav {
     background-color: #212844;
     overflow: hidden;
@@ -9,7 +9,7 @@ body {
 
 }
 
-/* Style the links inside the navigation bar */
+
 .topnav a {
     float: left;
     color: #f2f2f2;
@@ -70,6 +70,7 @@ main .features p {width: width: 100%;}
     display: inline-block;
     word-wrap: break-word;
 
+
 }
 
 .wrapper {
@@ -86,6 +87,10 @@ main .features p {width: width: 100%;}
     width: 80%;
 }
 
+.col-5 {
+    margin-left: 2%;
+    width: 80%;
+}
 
 
 @media screen and (max-width: 600px) {

@@ -17,6 +17,7 @@
                     {% if request.user|has_group:"Support" %}
                         <div class="alert alert-warning">
                             <h3>{{ el }}</h3>
+                            <h6>ID: {{ el.id }}</h6>
                             <p>Тип задачи: {{ el.type }}</p>
                             <p>Исполнитель: {{ el.executor }}</p>
                             <a href="{% url 'task-descr' el.id %}" class="btn btn-warning"> Открыть описание</a>
@@ -25,6 +26,7 @@
                     {% elif el.executor == request.user %}
                         <div class="alert alert-warning">
                             <h3>{{ el }}</h3>
+                            <h6>ID: {{ el.id }}</h6>
                             <p>{{ el.type }}</p>
                             <a href="{% url 'task-descr' el.id %}" class="btn btn-warning"> Открыть описание</a>
                         </div>
