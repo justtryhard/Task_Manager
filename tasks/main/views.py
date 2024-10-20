@@ -1,8 +1,12 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
-
+from django.contrib.auth.decorators import user_passes_test
 from .forms import Advert, AdvertForm
+
+
+def support_check(user): # проверка, что юзер является саппортом
+    return user.is_superuser or user.groups.filter(name='Support').exists()
 
 
 @login_required  #запрет на вход неавторизованным пользователям
@@ -23,6 +27,7 @@ def login(request):  #переход на страницу авторизаци�
     return render(request, 'registration/login.html')
 
 
+@user_passes_test(support_check)
 @login_required
 def create_adv(request):    # изъятие данных из формы и передача в БД
     error = ''

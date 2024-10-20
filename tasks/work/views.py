@@ -3,11 +3,15 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.utils.decorators import method_decorator
-
+from django.contrib.auth.decorators import user_passes_test
 from .models import WorkTask
 from django.views.generic import DetailView
 from django.views.generic.edit import FormMixin
 from .forms import CommentForm, WorkTaskForm
+
+
+def support_check(user): # проверка, что юзер является саппортом
+    return user.is_superuser or user.groups.filter(name='Support').exists()
 
 
 @login_required(login_url='/accounts/login?next=/work/')
@@ -61,7 +65,8 @@ class WorktaskDetailView(CommentMixin, FormMixin, DetailView):
         return super().form_valid(form)
 
 
-@login_required
+@user_passes_test(support_check)
+@login_required(login_url='/accounts/login?next=/work/create_task/')
 def create_task(request):  # создание новой задачи
     error = ''
     create_task_success = False
@@ -82,7 +87,8 @@ def create_task(request):  # создание новой задачи
     return render(request, 'work/create_task.html', data)
 
 
-@login_required
+@user_passes_test(support_check)
+@login_required(login_url='/accounts/login?next=/work/edit_task/<int:pk>/')
 def edit_task(request, pk):  # редактирование задачи
     error = ''
     get_worktask = WorkTask.objects.get(pk=pk)
