@@ -24,7 +24,9 @@
 
 ##  Скриншоты
 
-> *добавить*
+<img width="2261" height="3348" alt="jth_scr" src="https://github.com/user-attachments/assets/755e1011-bd6a-4727-9ebd-518da0bf219b" />
+<img width="2261" height="3348" alt="jth_scr1" src="https://github.com/user-attachments/assets/8cc9e81b-591d-4c7f-9d56-7b0d632b51d1" />
+
 
 ---
 
